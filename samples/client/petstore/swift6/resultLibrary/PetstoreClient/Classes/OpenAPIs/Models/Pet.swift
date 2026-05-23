@@ -58,5 +58,11 @@ internal struct Pet: Sendable, Codable, Hashable {
 }
 
 
-@available(iOS 13, tvOS 13, watchOS 6, macOS 10.15, *)
 extension Pet: Identifiable {}
+
+extension Pet: UnknownCaseCheckable {
+    internal var containsUnknownDefaultOpenApiCase: Bool {
+        if status == .encodeValue(.unknownDefaultOpenApi) { return true }
+        return false
+    }
+}

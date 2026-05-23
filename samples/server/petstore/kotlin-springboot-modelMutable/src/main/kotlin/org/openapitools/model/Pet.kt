@@ -3,10 +3,11 @@ package org.openapitools.model
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.annotation.JsonSetter
 import com.fasterxml.jackson.annotation.JsonValue
+import com.fasterxml.jackson.annotation.Nulls
 import org.openapitools.model.Category
 import org.openapitools.model.Tag
-import java.io.Serializable
 import javax.validation.constraints.DecimalMax
 import javax.validation.constraints.DecimalMin
 import javax.validation.constraints.Email
@@ -36,19 +37,23 @@ data class Pet(
     @get:JsonProperty("photoUrls", required = true) var photoUrls: kotlin.collections.MutableList<kotlin.String>,
 
     @Schema(example = "null", description = "")
+    @field:JsonSetter(nulls = Nulls.FAIL)
     @get:JsonProperty("id") var id: kotlin.Long? = null,
 
     @field:Valid
     @Schema(example = "null", description = "")
+    @field:JsonSetter(nulls = Nulls.FAIL)
     @get:JsonProperty("category") var category: Category? = null,
 
     @field:Valid
     @Schema(example = "null", description = "")
+    @field:JsonSetter(nulls = Nulls.FAIL)
     @get:JsonProperty("tags") var tags: kotlin.collections.MutableList<Tag>? = null,
 
     @Schema(example = "null", description = "pet status in the store")
+    @field:JsonSetter(nulls = Nulls.FAIL)
     @get:JsonProperty("status") var status: Pet.Status? = null
-) : Serializable {
+) : java.io.Serializable {
 
     /**
     * pet status in the store
@@ -65,7 +70,7 @@ data class Pet(
             @JsonCreator
             fun forValue(value: kotlin.String): Status {
                 return values().firstOrNull{it -> it.value == value}
-                    ?: throw IllegalArgumentException("Unexpected value '$value' for enum 'Pet'")
+                    ?: throw IllegalArgumentException("Unexpected value '$value' for enum 'Status'")
             }
         }
     }

@@ -55,5 +55,11 @@ internal struct Order: Sendable, Codable {
 }
 
 
-@available(iOS 13, tvOS 13, watchOS 6, macOS 10.15, *)
 extension Order: Identifiable {}
+
+extension Order: UnknownCaseCheckable {
+    internal var containsUnknownDefaultOpenApiCase: Bool {
+        if status == .unknownDefaultOpenApi { return true }
+        return false
+    }
+}

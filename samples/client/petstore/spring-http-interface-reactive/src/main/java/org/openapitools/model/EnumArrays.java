@@ -21,7 +21,7 @@ import jakarta.annotation.Generated;
  * EnumArrays
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class EnumArrays {
 
   /**
@@ -96,7 +96,6 @@ public class EnumArrays {
     }
   }
 
-  
   private List<ArrayEnumEnum> arrayEnum = new ArrayList<>();
 
   public EnumArrays justSymbol(@Nullable JustSymbolEnum justSymbol) {
@@ -114,6 +113,7 @@ public class EnumArrays {
     return justSymbol;
   }
 
+  @JsonProperty("just_symbol")
   public void setJustSymbol(@Nullable JustSymbolEnum justSymbol) {
     this.justSymbol = justSymbol;
   }
@@ -141,6 +141,7 @@ public class EnumArrays {
     return arrayEnum;
   }
 
+  @JsonProperty("array_enum")
   public void setArrayEnum(List<ArrayEnumEnum> arrayEnum) {
     this.arrayEnum = arrayEnum;
   }
@@ -178,10 +179,7 @@ public class EnumArrays {
    * (except the first line).
    */
   private String toIndentedString(@Nullable Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

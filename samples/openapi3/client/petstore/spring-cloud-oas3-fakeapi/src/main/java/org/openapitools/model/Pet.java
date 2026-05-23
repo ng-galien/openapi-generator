@@ -16,19 +16,19 @@ import org.openapitools.model.Tag;
 import org.springframework.lang.Nullable;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 /**
  * Pet
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class Pet {
 
   private @Nullable Long id;
@@ -37,10 +37,8 @@ public class Pet {
 
   private String name;
 
-  @Valid
   private Set<String> photoUrls = new LinkedHashSet<>();
 
-  @Valid
   private List<@Valid Tag> tags = new ArrayList<>();
 
   /**
@@ -103,6 +101,7 @@ public class Pet {
     return id;
   }
 
+  @JsonProperty("id")
   public void setId(@Nullable Long id) {
     this.id = id;
   }
@@ -123,6 +122,7 @@ public class Pet {
     return category;
   }
 
+  @JsonProperty("category")
   public void setCategory(@Nullable Category category) {
     this.category = category;
   }
@@ -143,6 +143,7 @@ public class Pet {
     return name;
   }
 
+  @JsonProperty("name")
   public void setName(String name) {
     this.name = name;
   }
@@ -172,6 +173,7 @@ public class Pet {
   }
 
   @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty("photoUrls")
   public void setPhotoUrls(Set<String> photoUrls) {
     this.photoUrls = photoUrls;
   }
@@ -200,6 +202,7 @@ public class Pet {
     return tags;
   }
 
+  @JsonProperty("tags")
   public void setTags(List<@Valid Tag> tags) {
     this.tags = tags;
   }
@@ -216,8 +219,8 @@ public class Pet {
    */
   
   @Schema(name = "status", description = "pet status in the store", deprecated = true, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("status")
   @Deprecated
+  @JsonProperty("status")
   public @Nullable StatusEnum getStatus() {
     return status;
   }
@@ -226,6 +229,7 @@ public class Pet {
    * @deprecated
    */
   @Deprecated
+  @JsonProperty("status")
   public void setStatus(@Nullable StatusEnum status) {
     this.status = status;
   }
@@ -271,10 +275,7 @@ public class Pet {
    * (except the first line).
    */
   private String toIndentedString(@Nullable Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

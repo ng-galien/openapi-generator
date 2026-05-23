@@ -3,10 +3,11 @@ package org.openapitools.model
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonCreator
 import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.annotation.JsonSetter
 import com.fasterxml.jackson.annotation.JsonValue
+import com.fasterxml.jackson.annotation.Nulls
 import org.openapitools.model.Category
 import org.openapitools.model.Tag
-import java.io.Serializable
 import jakarta.validation.constraints.DecimalMax
 import jakarta.validation.constraints.DecimalMin
 import jakarta.validation.constraints.Email
@@ -32,17 +33,21 @@ data class Pet(
 
     @get:JsonProperty("photoUrls", required = true) val photoUrls: kotlin.collections.List<kotlin.String>,
 
+    @field:JsonSetter(nulls = Nulls.FAIL)
     @get:JsonProperty("id") val id: kotlin.Long? = null,
 
     @field:Valid
+    @field:JsonSetter(nulls = Nulls.FAIL)
     @get:JsonProperty("category") val category: Category? = null,
 
     @field:Valid
+    @field:JsonSetter(nulls = Nulls.FAIL)
     @get:JsonProperty("tags") val tags: kotlin.collections.List<Tag>? = null,
 
     @Deprecated(message = "")
+    @field:JsonSetter(nulls = Nulls.FAIL)
     @get:JsonProperty("status") val status: Pet.Status? = null
-) : kotlin.collections.HashMap<String, kotlin.Any>(), Serializable {
+) : kotlin.collections.HashMap<String, kotlin.Any>(), java.io.Serializable {
 
     /**
     * pet status in the store
@@ -59,7 +64,7 @@ data class Pet(
             @JsonCreator
             fun forValue(value: kotlin.String): Status {
                 return values().firstOrNull{it -> it.value == value}
-                    ?: throw IllegalArgumentException("Unexpected value '$value' for enum 'Pet'")
+                    ?: throw IllegalArgumentException("Unexpected value '$value' for enum 'Status'")
             }
         }
     }

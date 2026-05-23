@@ -2,7 +2,8 @@ package org.openapitools.model
 
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
-import java.io.Serializable
+import com.fasterxml.jackson.annotation.JsonSetter
+import com.fasterxml.jackson.annotation.Nulls
 import javax.validation.constraints.DecimalMax
 import javax.validation.constraints.DecimalMin
 import javax.validation.constraints.Email
@@ -22,11 +23,13 @@ import io.swagger.annotations.ApiModelProperty
 data class Category(
 
     @ApiModelProperty(example = "null", value = "")
-    @get:JsonProperty("id") val id: kotlin.Long? = null,
+    @field:JsonSetter(nulls = Nulls.FAIL)
+    @get:JsonProperty("id") override val id: kotlin.Long? = null,
 
     @ApiModelProperty(example = "null", value = "")
-    @get:JsonProperty("name") val name: kotlin.String? = null
-) : Serializable {
+    @field:JsonSetter(nulls = Nulls.FAIL)
+    @get:JsonProperty("name") override val name: kotlin.String? = null
+) : com.some.pack.CategoryInterface, java.io.Serializable {
 
     companion object {
         private const val serialVersionUID: kotlin.Long = 1

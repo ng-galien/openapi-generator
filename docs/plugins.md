@@ -16,7 +16,7 @@ Add to your `build->plugins` section (default phase is `generate-sources` phase)
 <plugin>
     <groupId>org.openapitools</groupId>
     <artifactId>openapi-generator-maven-plugin</artifactId>
-    <version>7.17.0</version>
+    <version>7.22.0</version>
     <executions>
         <execution>
             <goals>
@@ -130,7 +130,7 @@ This Mill library provides a Mill module that can be used to generate code from 
 ```scala
 //| mill-version: 1.0.6
 //| mvnDeps:
-//|   - org.openapitools:openapi-generator-mill-plugin:7.19.0 # 1.
+//|   - org.openapitools:openapi-generator-mill-plugin:7.20.0 # 1.
 
 import mill.*
 
@@ -162,8 +162,8 @@ This gives access to the following tasks:
 
 | Task                      | Description                                                                                 |
 |---------------------------|---------------------------------------------------------------------------------------------|
-| <configName>.generate     | Generate code via Open API Tools Generator for Open API 2.0 or 3.x specification documents. |
-| <configName>.validateSpec | Validates the configured spec                                                               |
+| &lt;configName&gt;.generate     | Generate code via Open API Tools Generator for Open API 2.0 or 3.x specification documents. |
+| &lt;configName&gt;.validateSpec | Validates the configured spec                                                               |
 
 and a command
 

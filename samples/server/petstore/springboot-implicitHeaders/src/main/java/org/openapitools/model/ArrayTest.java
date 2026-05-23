@@ -4,8 +4,6 @@ import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +13,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 
 import java.util.*;
@@ -24,16 +23,13 @@ import javax.annotation.Generated;
  * ArrayTest
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class ArrayTest {
 
-  @Valid
   private List<String> arrayOfString = new ArrayList<>();
 
-  @Valid
   private List<List<Long>> arrayArrayOfInteger = new ArrayList<>();
 
-  @Valid
   private List<List<@Valid ReadOnlyFirst>> arrayArrayOfModel = new ArrayList<>();
 
   public ArrayTest arrayOfString(List<String> arrayOfString) {
@@ -54,12 +50,13 @@ public class ArrayTest {
    * @return arrayOfString
    */
   
-  @ApiModelProperty(value = "")
+  @Schema(name = "array_of_string", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("array_of_string")
   public List<String> getArrayOfString() {
     return arrayOfString;
   }
 
+  @JsonProperty("array_of_string")
   public void setArrayOfString(List<String> arrayOfString) {
     this.arrayOfString = arrayOfString;
   }
@@ -82,12 +79,13 @@ public class ArrayTest {
    * @return arrayArrayOfInteger
    */
   @Valid 
-  @ApiModelProperty(value = "")
+  @Schema(name = "array_array_of_integer", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("array_array_of_integer")
   public List<List<Long>> getArrayArrayOfInteger() {
     return arrayArrayOfInteger;
   }
 
+  @JsonProperty("array_array_of_integer")
   public void setArrayArrayOfInteger(List<List<Long>> arrayArrayOfInteger) {
     this.arrayArrayOfInteger = arrayArrayOfInteger;
   }
@@ -110,12 +108,13 @@ public class ArrayTest {
    * @return arrayArrayOfModel
    */
   @Valid 
-  @ApiModelProperty(value = "")
+  @Schema(name = "array_array_of_model", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("array_array_of_model")
   public List<List<@Valid ReadOnlyFirst>> getArrayArrayOfModel() {
     return arrayArrayOfModel;
   }
 
+  @JsonProperty("array_array_of_model")
   public void setArrayArrayOfModel(List<List<@Valid ReadOnlyFirst>> arrayArrayOfModel) {
     this.arrayArrayOfModel = arrayArrayOfModel;
   }
@@ -155,10 +154,7 @@ public class ArrayTest {
    * (except the first line).
    */
   private String toIndentedString(@Nullable Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 

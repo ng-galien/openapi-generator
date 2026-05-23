@@ -23,7 +23,7 @@ import jakarta.annotation.Generated;
  * MixedPropertiesAndAdditionalPropertiesClass
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.19.0-SNAPSHOT")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.23.0-SNAPSHOT")
 public class MixedPropertiesAndAdditionalPropertiesClass {
 
   private @Nullable UUID uuid;
@@ -31,7 +31,6 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private @Nullable OffsetDateTime dateTime;
 
-  
   private Map<String, Animal> map = new HashMap<>();
 
   public MixedPropertiesAndAdditionalPropertiesClass uuid(@Nullable UUID uuid) {
@@ -49,6 +48,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     return uuid;
   }
 
+  @JsonProperty("uuid")
   public void setUuid(@Nullable UUID uuid) {
     this.uuid = uuid;
   }
@@ -68,6 +68,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     return dateTime;
   }
 
+  @JsonProperty("dateTime")
   public void setDateTime(@Nullable OffsetDateTime dateTime) {
     this.dateTime = dateTime;
   }
@@ -95,6 +96,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     return map;
   }
 
+  @JsonProperty("map")
   public void setMap(Map<String, Animal> map) {
     this.map = map;
   }
@@ -134,10 +136,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
    * (except the first line).
    */
   private String toIndentedString(@Nullable Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 }
 
